@@ -1,0 +1,91 @@
+.swiper-container {
+  width: 100%;
+  height: 568px;
+  overflow: hidden;
+  margin: 0 auto;
+  /*padding: 20px 10px;*/
+}
+@media screen and (max-width: 767px) {
+  .swiper-container {
+    height: 432px;
+  }
+}
+.swiper-slide {
+  background: transparent;
+  position: relative;
+  .image {
+    width: 100%;
+    height: 62.5%;
+    background-color: transparent;
+  }
+  .description {
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+  }
+  .link {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: transparent;
+    a {
+      color: #634C0B;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+    a:visited {
+      color: #634C0B;
+    }
+    a:hover {
+      color: #634C0B;
+    }
+  }
+  &.one .image {
+    background-image: url('../../dist/images/site/01_home/duona@2x.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+   &.two .image {
+    background-image: url('../../dist/images/site/01_home/grikiu@2x.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+   &.three .image {
+    background-image: url('../../dist/images/site/01_home/bulviu@2x.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+   &.four .image {
+    background-image: url('../../dist/images/site/01_home/skruzdelynas@2x.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-button-prev, .swiper-button-next {
+    display: none!important;
+  }
+  .swiper-slide-active {
+    background: transparent;
+    width: 70% !important;
+  }
+
+  .swiper-wrapper {
+    overflow: visible;
+  }
+  .swiper-slide {
+    .image {
+      height: 220px;
+    }
+  }
+}
+

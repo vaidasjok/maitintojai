@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+html {
+	background-color: rgba(241, 224, 208, 1);
+	background-image: url('../../dist/images/site/shadow.png');
+	background-position: top left;
+	background-repeat: repeat-y;
+	background-size: auto;
+	background-attachment: fixed;
+	font-family: "EB Garamond";
+	min-height: 100%;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	min-height: 100vh;
+	background-color: transparent;
+	font-family: "EB Garamond";
+	font-size: 17px;
+}
+
+body > .wrapper{
+
+
+}
+h1 {
+	text-align: center;
+	color: #634C0B;
+	font-size: 50px;
+	font-size: 2.941176470588235rem;
+	text-transform: uppercase;
+	font-family: "EB Garamond";
+	font-weight: 300;
+	padding-top: 50px;
+	margin-bottom: 150px;
+	padding-top: 5%;
+    margin-bottom: 15%;
+}
+@media screen and (max-width: 700px) {
+	h1 {
+		font-size: 30px;
+	}
+}
+header {
+	padding: 30px 25px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+@media screen and (max-width: 1400px) {
+	header {
+		height: 130px;
+		background-color: rgba(241, 224, 208, 1);
+		background-image: url('../../dist/images/site/shadow.png');
+		background-position: top left;
+		background-repeat: no-repeat;
+		background-size: auto;
+		background-attachment: fixed;    	
+	}
+}
+@media screen and (max-width: 767px) {
+	header {
+		height: 101px;
+	}
+}
+#logo {
+	width: 95px;
+	z-index: 999;
+	position: absolute;
+	top: 30px;
+	left: 20px;
+}
+@media screen and (max-width: 991px) {
+	#logo {
+		width: 75px;
+		top: 13px;
+		left: 15px;
+	}
+}
+
+#logo img {
+	max-width: 100%;
+
+}
+#content {
+	/*height: 1000px;*/
+	background-color: transparent;
+}
+#MenuIcon {
+	width: 50px;
+	height: 25px;
+	position: absolute;
+	top: 70px;
+	right: 20px;
+	z-index: 999;
+}
+@media screen and (max-width: 991px) {
+	#MenuIcon {
+		top: 38px;
+		right: 15px;
+	}
+}
+#MenuIcon:hover {
+	display: block;
+	cursor: pointer;
+}
+#MenuLine {
+	width: 40px;
+	height: 2px;
+	background-color: #634C0B;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all .3s;
+}
+#MenuIcon:hover #MenuLine {
+	width: 40px;
+}
+#MenuLine::before {
+	content: '';
+	height: 2px;
+	width: 40px;
+	background-color: #634C0B;
+	position: absolute;
+	margin-top: 10px;
+	transition: all .3s;
+}
+#MenuLine::after {
+	content: '';
+	height: 2px;
+	width: 40px;
+	background-color: #634C0B;
+	position: absolute;
+	margin-top: -10px;
+	transition: all .3s;
+}
+#MainMenu {
+
+	min-height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: -100vh;
+	/*top: 0;*/
+	left: 0px; 
+
+	background-color: rgba(241, 224, 208, 1);
+	background-image: url('../../dist/images/site/shadow.png');
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-attachment: scroll;
+	transition: all .5s ease-in-out;
+	z-index: 998;
+	li {
+		margin-bottom: 25px;
+		width: auto;
+		/*display: block;*/
+	}
+	li a {
+		display: inline-block;
+		/*width: auto;*/
+		text-decoration: none;
+		font-size: 25px;
+		color: #634C0B;
+		text-transform: uppercase;
+		font-weight: 300;
+		font-style: normal;
+		&::after {
+			content: "";
+			display: block;
+			height: 1px;
+			width: 50px;
+			margin-top: 10px;
+			background-color: #634C0B;
+			transition: width .3s;
+		}
+	}
+	li a:hover {
+		color: #634C0B;
+		&::after {
+			width: 100%;
+		}
+	}
+}
+#MainMenu.is-open {
+	top: 0px;
+	transition: all .3s;
+}
+ul {
+	color: #634C0B;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: 50px;
+	
+}
+#MenuIcon.is-open #MenuLine::before {
+	opacity: 0;
+}
+#MenuIcon.is-open #MenuLine::after {
+	margin-top: 0;
+	transform: rotate(60deg);
+}
+#MenuIcon.is-open #MenuLine {
+	transform: rotate(-30deg) translate(-50%, -50%);
+	margin-top: -10px;
+}

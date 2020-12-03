@@ -1,0 +1,136 @@
+#content {
+	margin-top: 160px;
+	display: block;
+}
+h2 {
+	margin-top: 150px;
+	font-size: 32px;
+	color: #634C0B;
+	font-weight: normal;
+	margin-bottom: 100px;
+}
+@media screen and (max-width: 991px) {
+	h2 {
+		margin-top: 70px;
+		margin-bottom: 50px;
+	}
+}
+.ltk-logo {
+	padding: 25px;
+}
+.row-first {
+	display: flex;
+	justify-content: space-between;
+}
+@media screen and (max-width: 991px) {
+	.row-first {
+		flex-flow: column;
+	}
+}
+.wrapper.photo {
+	position: relative;
+}
+.photo-1-block {
+	width: 34.649122807017544%;
+	img {
+		max-width: 100%;
+	}
+	.photo-2 {
+		width: 100%;
+		position: absolute;
+		display: block;
+		right: 0px;
+		right: -64.556962025316456%;
+    	top: 50%;
+    	img {
+			max-width: 100%;
+		}
+	}
+}
+@media screen and (max-width: 991px) {
+	.photo-1-block {
+		width: 60.60%;
+	}
+}
+.text-1-block {
+	width: 62%;
+	padding-top: 63px;
+	p {
+		font-size: 18px;
+		line-height: 24px;
+		color: #634C0B;
+		text-align: left;
+		font-family: "EB Garamond";
+	}
+}
+@media screen and (max-width: 991px) {
+	.text-1-block {
+		width: 100%;
+		p {
+			margin-top: 30%;
+			margin-bottom: 3rem;
+		}
+	}
+}
+.row-second {
+	display: flex;
+	justify-content: space-between;
+}
+@media screen and (max-width: 991px) {
+	.row-second {
+		flex-flow: column;
+		flex-flow: column-reverse;
+	}
+}
+.photo-2-block {
+	width: 34.649122807017544%;
+	position: relative;
+	img {
+		max-width: 100%;
+	}
+	.photo-1 {
+		width: 78.481012658227848%;
+		position: absolute;
+		display: block;
+		right: 0px;
+    	top: 5;
+    	img {
+			max-width: 100%;
+		}
+	}
+}
+@media screen and (max-width: 991px) {
+	.photo-2-block {
+		width: 100%;
+		.photo-1 {
+			position: relative;
+			margin: 0 auto;
+			width: 60%;
+		}
+	}
+
+}
+.text-2-block {
+	margin-top: 30%;
+	width: 62%;
+	/*padding-top: 63px;*/
+	p {
+		font-size: 18px;
+		line-height: 24px;
+		color: #634C0B;
+		text-align: left;
+		font-family: "EB Garamond";
+		padding-right: 22%;
+	}
+}
+@media screen and (max-width: 991px) {
+	.text-2-block {
+		width: 100%;
+		margin-top: 0px;
+		p {
+			margin-top: 10%;
+			margin-bottom: 3rem;
+			padding-right: 0px;
+		}
+	}
+}
