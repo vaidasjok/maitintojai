@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html land="lt">
+<html lang="lt">
 <head>
-    <title></title>
+    <title>Maitintojai</title>
     <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel="stylesheet" href="./css/app.css">
     <script src="./js/app.js"></script>
 </head>
-<body>
+<body class="vj_cursor_animate">
+    <div id="js-pointer"></div>
     <div class="wrapper">
         <header>
             <div id="logo">
@@ -38,10 +39,10 @@
                         <div class="row-first">
                             <div class="photo-1-block">
                                 <div class="wrapper photo">
-                                    <div class="photo-1">
+                                    <div class="photo-1" data-direction="down" data-speed="0.15">
                                         <img class="" src="./images/site/01_home/1@2x.jpg" alt="">
                                     </div>
-                                    <div class="photo-2">
+                                    <div class="photo-2" data-direction="down" data-speed="0.05">
                                         <img class="" src="./images/site/01_home/2@1x.jpg" alt="">
                                     </div>
                                 </div>
@@ -123,14 +124,31 @@
         </div>
     </div>
 
-    <footer>
-        <div class="ltk-logo">
-            <img width="130" src="./images/site/LTK_logo.svg" alt="">
-        </div>
-        <div class="container">
+    <footer>        
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    
+                <div class="col-6 col-md-4">
+                    <div class="finansuoja">
+                        Projektą finansuoja
+                        <div class="ltk-logo">
+                            <img width="130" src="./images/site/LTK_logo.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order-3 order-sm-3 order-md-2 copy align-self-end">
+                    <p>©2020 maitintojai.lt | įvaizdis <a href="https://cesiuleviciute.com" target="_blank">cesiuleviciute.com</a></p>
+                </div>
+                <div class="col-6 col-md-4 order-2 order-sm-2 order-md-3 footer-right">
+                    <div class="social">
+                        <a href="#" class="facebook" target="_blank"><img src="./images/site/fb.svg" alt=""></a>
+                        <a href="#" class="youtube" target="_blank"><img src="./images/site/youtube.svg" alt=""></a>
+                    </div>
+                    <div class="mail">
+                        <a href="mailto:#">mail@mail.com</a>
+                    </div>
+                    <div class="phone">
+                        <a href="tel:+37012345678">+370 123 45678</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 .swiper-container {
   width: 100%;
-  height: 568px;
+  height: 518px;
   overflow: hidden;
   margin: 0 auto;
   /*padding: 20px 10px;*/
 }
 @media screen and (max-width: 767px) {
   .swiper-container {
-    height: 432px;
+    height: 442px;
   }
 }
 .swiper-slide {
@@ -23,6 +23,9 @@
     width: 100%;
     height: auto;
     background-color: transparent;
+    color: #634C0B;
+    font-size: 18px;
+    line-height: 24px;
   }
   .link {
     display: block;
@@ -36,12 +39,36 @@
       color: #634C0B;
       font-size: 18px;
       text-transform: uppercase;
+      display: inline-block;
+      &::after {
+        content: "";
+
+        display: block;
+        height: 10px;
+        width: 50px;
+        margin-top: 10px;
+        /*background-color: #634C0B;*/
+        border-top: 1px solid #634C0B;
+        background-image: none;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        transition: width .3s, opacity .3s linear;
+        -webkit-transition: width .3s, opacity .3s;
+
+        opacity: 0;
+      }
     }
     a:visited {
       color: #634C0B;
     }
     a:hover {
       color: #634C0B;
+      text-decoration: none;
+      &::after {
+        width: 100%;
+        /*background-image: url(../../dist/images/site/rodykle.svg);*/
+        opacity: 1;
+      }
     }
   }
   &.one .image {
@@ -88,4 +115,20 @@
     }
   }
 }
-
+.swiper-button-prev, .swiper-button-next {
+  background-image: none;
+}
+.swiper-button-prev:after {
+    content: '\e87e';
+    font-family: eicons;
+    font-weight: 400;
+    font-size: 25px;
+    color: rgba(238, 238, 238, 0.9);
+}
+.swiper-button-next:after {
+    content: '\e87d';
+    font-family: eicons;
+    font-weight: 400;
+    font-size: 25px;
+    color: rgba(238, 238, 238, 0.9);
+}

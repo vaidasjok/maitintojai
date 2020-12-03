@@ -1,6 +1,8 @@
 window.$ = window.jQuery = require('jquery');
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
+import {vj_paralax} from './vj_paralax.js';
+import {vj_mouse_pointer} from './vj_mouse_pointer.js';
 
 
 $(document).ready(function() {
@@ -8,6 +10,10 @@ $(document).ready(function() {
 		$('#MainMenu').toggleClass('is-open is-closed');
 		$('#MenuIcon').toggleClass('is-open is-closed');
 	});
+
+	vj_paralax();
+
+	vj_mouse_pointer();
 
 	// $("#MenuIcon.is-open").click(function() {
 	// 	// alert('veikia');

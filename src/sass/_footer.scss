@@ -1,0 +1,56 @@
+footer {
+	margin-top: 175px;
+	color: #634C0B;
+	margin-bottom: 55px;
+	a:link {
+		color: #634C0B;
+		text-decoration: none;
+	}
+	a:visited {
+		color: #634C0B;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #634C0B;
+		text-decoration: underline;
+	}
+}
+.finansuoja {
+	padding-left: 10px;
+	font-size: 18px;
+}
+.ltk-logo {
+	padding: 8px 0px;
+}
+.copy {
+    text-align: center;
+    p {
+    	margin-bottom: 0px;
+    	text-align: center;
+    }
+    
+}
+@media screen and (max-width: 767px) {
+	.copy {
+		margin-top: 30px;
+	}
+}
+.footer-right {
+	text-align: right;
+	
+	.social {
+		display: block;
+		margin-right: 10px;
+		.youtube {
+			margin-left: 30px;
+		}
+	}
+	.mail {
+		margin-top: 16px;
+		margin-right: 10px;
+	}
+	.phone {
+		margin-top: 0px;
+		margin-right: 10px;
+	}
+}
