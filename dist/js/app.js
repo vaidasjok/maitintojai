@@ -23305,13 +23305,17 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 
 
 
+
+__webpack_require__(/*! ./jquery.fitvids.js */ "./src/js/jquery.fitvids.js");
+
 $(document).ready(function () {
   $('#MenuIcon.is-closed').click(function () {
     $('#MainMenu').toggleClass('is-open is-closed');
     $('#MenuIcon').toggleClass('is-open is-closed');
   });
   Object(_vj_paralax_js__WEBPACK_IMPORTED_MODULE_2__["vj_paralax"])();
-  Object(_vj_mouse_pointer_js__WEBPACK_IMPORTED_MODULE_3__["vj_mouse_pointer"])(); // $("#MenuIcon.is-open").click(function() {
+  Object(_vj_mouse_pointer_js__WEBPACK_IMPORTED_MODULE_3__["vj_mouse_pointer"])();
+  $(".vj_responsive_video").fitVids(); // $("#MenuIcon.is-open").click(function() {
   // 	// alert('veikia');
   // 	$('#MainMenu').removeClass('is-open');
   // 	$('#MenuIcon').addClass('is-closed');
@@ -23358,7 +23362,143 @@ window.onload = function () {
     // },
 
   });
+  var mySwiperTwo = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-container-gallery', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    // effect: 'coverflow',
+    breakpoints: {
+      767: {
+        slidesPerView: 2
+      },
+      960: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        centeredSlides: false
+      }
+    },
+    // coverflow: {
+    //           // rotate: 40,
+    //           stretch: 0,
+    //           // depth: 50,
+    //           modifier: 1,
+    //           slideShadows : false
+    //       },
+    // centeredSlides: true,
+    // If we need pagination
+    // pagination: {
+    //   el: '.swiper-pagination',
+    // },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    } // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+
+  });
 };
+
+/***/ }),
+
+/***/ "./src/js/jquery.fitvids.js":
+/*!**********************************!*\
+  !*** ./src/js/jquery.fitvids.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*jshint browser:true */
+
+/*!
+* FitVids 1.1
+*
+* Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
+* Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
+* Released under the WTFPL license - http://sam.zoy.org/wtfpl/
+*
+*/
+;
+
+(function ($) {
+  'use strict';
+
+  $.fn.fitVids = function (options) {
+    var settings = {
+      customSelector: null,
+      ignore: null
+    };
+
+    if (!document.getElementById('fit-vids-style')) {
+      // appendStyles: https://github.com/toddmotto/fluidvids/blob/master/dist/fluidvids.js
+      var head = document.head || document.getElementsByTagName('head')[0];
+      var css = '.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}';
+      var div = document.createElement("div");
+      div.innerHTML = '<p>x</p><style id="fit-vids-style">' + css + '</style>';
+      head.appendChild(div.childNodes[1]);
+    }
+
+    if (options) {
+      $.extend(settings, options);
+    }
+
+    return this.each(function () {
+      var selectors = ['iframe[src*="player.vimeo.com"]', 'iframe[src*="youtube.com"]', 'iframe[src*="youtube-nocookie.com"]', 'iframe[src*="kickstarter.com"][src*="video.html"]', 'object', 'embed'];
+
+      if (settings.customSelector) {
+        selectors.push(settings.customSelector);
+      }
+
+      var ignoreList = '.fitvidsignore';
+
+      if (settings.ignore) {
+        ignoreList = ignoreList + ', ' + settings.ignore;
+      }
+
+      var $allVideos = $(this).find(selectors.join(','));
+      $allVideos = $allVideos.not('object object'); // SwfObj conflict patch
+
+      $allVideos = $allVideos.not(ignoreList); // Disable FitVids on this video.
+
+      $allVideos.each(function () {
+        var $this = $(this);
+
+        if ($this.parents(ignoreList).length > 0) {
+          return; // Disable FitVids on this video.
+        }
+
+        if (this.tagName.toLowerCase() === 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) {
+          return;
+        }
+
+        if (!$this.css('height') && !$this.css('width') && (isNaN($this.attr('height')) || isNaN($this.attr('width')))) {
+          $this.attr('height', 9);
+          $this.attr('width', 16);
+        }
+
+        var height = this.tagName.toLowerCase() === 'object' || $this.attr('height') && !isNaN(parseInt($this.attr('height'), 10)) ? parseInt($this.attr('height'), 10) : $this.height(),
+            width = !isNaN(parseInt($this.attr('width'), 10)) ? parseInt($this.attr('width'), 10) : $this.width(),
+            aspectRatio = height / width;
+
+        if (!$this.attr('name')) {
+          var videoName = 'fitvid' + $.fn.fitVids._count;
+          $this.attr('name', videoName);
+          $.fn.fitVids._count++;
+        }
+
+        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', aspectRatio * 100 + '%');
+        $this.removeAttr('height').removeAttr('width');
+      });
+    });
+  }; // Internal counter for unique video names.
+
+
+  $.fn.fitVids._count = 0; // Works with either jQuery or Zepto
+})(window.jQuery || window.Zepto);
 
 /***/ }),
 
@@ -23402,22 +23542,36 @@ function vj_paralax() {
   window.addEventListener("scroll", scrollHandler);
 
   function scrollHandler() {
+    var i = 0;
+
     var _iterator = _createForOfIteratorHelper(parallaxEls),
         _step;
 
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var parallaxEl = _step.value;
-        var direction = parallaxEl.dataset.direction == "up" ? "-" : "";
-        var transformY = this.pageYOffset * parallaxEl.dataset.speed;
 
-        if (parallaxEl.classList.contains("banner-title")) {
-          parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0) rotate(-6deg)");
-        } else if (parallaxEl.classList.contains("banner-subtitle")) {
-          parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0) rotate(-3deg)");
-        } else {
-          parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0)");
+        if (isOnScreen(parallaxEl)) {
+          var direction = parallaxEl.dataset.direction == "up" ? "-" : "";
+          var firstTop = parallaxEl.getBoundingClientRect().top;
+          var transformY = void 0;
+
+          if (i == 0 || i == 1) {
+            transformY = (firstTop - parallaxEl.getBoundingClientRect().top - this.pageYOffset) * parallaxEl.dataset.speed;
+          } else {
+            transformY = (firstTop + parallaxEl.getBoundingClientRect().top - this.pageYOffset) * parallaxEl.dataset.speed;
+          }
+
+          if (parallaxEl.classList.contains("banner-title")) {
+            parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0) rotate(-6deg)");
+          } else if (parallaxEl.classList.contains("banner-subtitle")) {
+            parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0) rotate(-3deg)");
+          } else {
+            parallaxEl.style.transform = "translate3d(0,".concat(direction).concat(transformY, "px,0)");
+          }
         }
+
+        i++;
       }
     } catch (err) {
       _iterator.e(err);
@@ -23425,6 +23579,20 @@ function vj_paralax() {
       _iterator.f();
     }
   }
+
+  var isOnScreen = function isOnScreen(el) {
+    var scroll = window.scrollY || window.pageYOffset;
+    var boundsTop = el.getBoundingClientRect().top + scroll;
+    var viewport = {
+      top: scroll,
+      bottom: scroll + window.innerHeight
+    };
+    var bounds = {
+      top: boundsTop,
+      bottom: boundsTop + el.clientHeight
+    };
+    return bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom || bounds.top <= viewport.bottom && bounds.top >= viewport.top;
+  };
 }
 
 /***/ }),

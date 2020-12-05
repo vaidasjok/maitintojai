@@ -1,5 +1,7 @@
-.vj_cursor_animate * {
-	cursor: none!important;
+@media screen and (min-width: 1199px) {
+    .vj_cursor_animate * {
+    	cursor: none!important;
+    }
 }
 #js-pointer {
     left: -833px;
@@ -10,19 +12,20 @@
     position: fixed;
     z-index: 9999;
     border-radius: 50%;
+    border: 1px solid #634C0B;
     pointer-events: none;
     box-sizing: border-box;
-    background: #fff;
-    mix-blend-mode: difference;
+    background: transparent;
+    /*mix-blend-mode: difference;*/
     transform: translate(-50%, -50%) scale(0.4);
     transition: transform .5s cubic-bezier(.19, .94, .336, 1), -webkit-transform .5s cubic-bezier(.19, .94, .336, 1);
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
     #js-pointer {
         display: none;
     }
     .vj_cursor_animate * {
-        cursor: initial!important;
+        /*cursor: initial!important;*/
     }
 }

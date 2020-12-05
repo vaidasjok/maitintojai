@@ -10902,13 +10902,18 @@ a.text-dark:focus {
   }
 }
 
-.swiper-container {
+.swiper-container,
+.swiper-container-gallery {
   width: 100%;
   height: 518px;
   overflow: hidden;
   margin: 0 auto;
   /*padding: 20px 10px;*/
 }
+
+/*.swiper-container-gallery {
+  margin-top: 150px;
+}*/
 
 @media screen and (max-width: 767px) {
   .swiper-container {
@@ -10963,11 +10968,11 @@ a.text-dark:focus {
   /*background-color: #634C0B;*/
   border-top: 1px solid #634C0B;
   background-image: none;
-  background-position: bottom right;
+  background-position: 101% -3px;
   background-repeat: no-repeat;
   transition: width .3s, opacity .3s linear;
   -webkit-transition: width .3s, opacity .3s;
-  opacity: 0;
+  opacity: 1;
 }
 
 .swiper-slide .link a:visited {
@@ -10981,7 +10986,7 @@ a.text-dark:focus {
 
 .swiper-slide .link a:hover::after {
   width: 100%;
-  /*background-image: url(../../dist/images/site/rodykle.svg);*/
+  background-image: url(/images/kabliukas.svg?1babf5c26749b65f0ba10a6580bd444d);
   opacity: 1;
 }
 
@@ -11036,6 +11041,14 @@ a.text-dark:focus {
 .swiper-button-prev,
 .swiper-button-next {
   background-image: none;
+  top: calc( (62.5% / 2)) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: calc( (220 + 44) / 2);
+  }
 }
 
 .swiper-button-prev:after {
@@ -11054,8 +11067,10 @@ a.text-dark:focus {
   color: rgba(238, 238, 238, 0.9);
 }
 
-.vj_cursor_animate * {
-  cursor: none !important;
+@media screen and (min-width: 1199px) {
+  .vj_cursor_animate * {
+    cursor: none !important;
+  }
 }
 
 #js-pointer {
@@ -11067,29 +11082,30 @@ a.text-dark:focus {
   position: fixed;
   z-index: 9999;
   border-radius: 50%;
+  border: 1px solid #634C0B;
   pointer-events: none;
   box-sizing: border-box;
-  background: #fff;
-  mix-blend-mode: difference;
+  background: transparent;
+  /*mix-blend-mode: difference;*/
   transform: translate(-50%, -50%) scale(0.4);
   transition: transform 0.5s cubic-bezier(0.19, 0.94, 0.336, 1);
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
   #js-pointer {
     display: none;
   }
 
   .vj_cursor_animate * {
-    cursor: initial !important;
+    /*cursor: initial!important;*/
   }
 }
 
 html {
   background-color: #f1e0d0;
-  background-image: url(/images/shadow.png?fe3a93c8c6df087dd15fc1e2c3ba773b);
+  background-image: url(/images/seselis.png?193efb8953f2049e1846ff7aab0f1e7f);
   background-position: top left;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
   font-family: "EB Garamond";
@@ -11126,7 +11142,8 @@ h1 {
 }
 
 header {
-  padding: 30px 25px;
+  /*padding: 30px 25px;*/
+  height: 155px;
   position: fixed;
   position: -webkit-sticky;
   position: sticky;
@@ -11140,7 +11157,7 @@ header {
   header {
     height: 130px;
     background-color: #f1e0d0;
-    background-image: url(/images/shadow.png?fe3a93c8c6df087dd15fc1e2c3ba773b);
+    background-image: url(/images/seselis.png?193efb8953f2049e1846ff7aab0f1e7f);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: auto;
@@ -11245,7 +11262,7 @@ header {
   /*top: 0;*/
   left: 0px;
   background-color: #f1e0d0;
-  background-image: url(/images/shadow.png?fe3a93c8c6df087dd15fc1e2c3ba773b);
+  background-image: url(/images/seselis.png?193efb8953f2049e1846ff7aab0f1e7f);
   background-position: top left;
   background-repeat: no-repeat;
   background-size: auto;
@@ -11321,7 +11338,7 @@ ul {
 }
 
 #content {
-  margin-top: 160px;
+  margin-top: 5px;
   display: block;
 }
 
@@ -11479,10 +11496,38 @@ h2 {
   }
 }
 
+.vj_responsive_video {
+  width: 100%;
+  margin-bottom: 150px;
+  float: right;
+}
+
+h2.duona {
+  padding-left: 20.7%;
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 991px) {
+  h2.duona {
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .vj_responsive_video {
+    width: 79.385964912280702%;
+    display: block;
+    margin-right: 0px;
+    margin-bottom: 150px;
+  }
+}
+
 footer {
-  margin-top: 175px;
+  padding-top: 175px;
   color: #634C0B;
-  margin-bottom: 55px;
+  padding-bottom: 55px;
 }
 
 footer a:link {

@@ -3,6 +3,7 @@ import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 import {vj_paralax} from './vj_paralax.js';
 import {vj_mouse_pointer} from './vj_mouse_pointer.js';
+require('./jquery.fitvids.js');
 
 
 $(document).ready(function() {
@@ -15,6 +16,8 @@ $(document).ready(function() {
 
 	vj_mouse_pointer();
 
+	$(".vj_responsive_video").fitVids();
+
 	// $("#MenuIcon.is-open").click(function() {
 	// 	// alert('veikia');
 	// 	$('#MainMenu').removeClass('is-open');
@@ -24,6 +27,50 @@ $(document).ready(function() {
 
 window.onload = function() {
 	var mySwiper = new Swiper('.swiper-container', {
+	    // Optional parameters
+	    direction: 'horizontal',
+	    loop: true,
+	    slidesPerView: 1,
+	    spaceBetween: 30,
+	    // effect: 'coverflow',
+	    breakpoints: {
+		    767: {
+		    	slidesPerView: 2,
+			},
+			960: {
+				slidesPerView: 3,
+				slidesPerGroup: 1,
+				centeredSlides: false
+			}
+
+		},
+		// coverflow: {
+  //           // rotate: 40,
+  //           stretch: 0,
+  //           // depth: 50,
+  //           modifier: 1,
+  //           slideShadows : false
+  //       },
+	    // centeredSlides: true,
+
+	    // If we need pagination
+	    // pagination: {
+	    //   el: '.swiper-pagination',
+	    // },
+
+	    // Navigation arrows
+	    navigation: {
+	      nextEl: '.swiper-button-next',
+	      prevEl: '.swiper-button-prev',
+	    },
+
+	    // And if we need scrollbar
+	    // scrollbar: {
+	    //   el: '.swiper-scrollbar',
+	    // },
+	});
+
+	var mySwiperTwo = new Swiper('.swiper-container-gallery', {
 	    // Optional parameters
 	    direction: 'horizontal',
 	    loop: true,
