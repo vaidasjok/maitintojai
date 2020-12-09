@@ -2,6 +2,7 @@ footer {
 	padding-top: 175px;
 	color: #634C0B;
 	padding-bottom: 55px;
+	font-size: 14px;
 	a:link {
 		color: #634C0B;
 		text-decoration: none;
@@ -17,16 +18,18 @@ footer {
 }
 .finansuoja {
 	padding-left: 10px;
-	font-size: 18px;
+	font-size: 14px;
 }
 .ltk-logo {
 	padding: 8px 0px;
 }
 .copy {
     text-align: center;
+    font-size: 12px;
     p {
     	margin-bottom: 0px;
     	text-align: center;
+
     }
     
 }
@@ -46,11 +49,11 @@ footer {
 		}
 	}
 	.mail {
-		margin-top: 16px;
+		margin-top: 0px;
 		margin-right: 10px;
 	}
 	.phone {
-		margin-top: 0px;
+		margin-top: 16px;
 		margin-right: 10px;
 	}
 }

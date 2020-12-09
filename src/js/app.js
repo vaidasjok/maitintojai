@@ -4,6 +4,7 @@ import 'swiper/swiper-bundle.css';
 import {vj_paralax} from './vj_paralax.js';
 import {vj_mouse_pointer} from './vj_mouse_pointer.js';
 require('./jquery.fitvids.js');
+import 'lightgallery.js/dist/js/lightgallery.js'; 
 
 
 $(document).ready(function() {
@@ -72,18 +73,28 @@ window.onload = function() {
 
 	var mySwiperTwo = new Swiper('.swiper-container-gallery', {
 	    // Optional parameters
-	    direction: 'horizontal',
-	    loop: true,
-	    slidesPerView: 1,
-	    spaceBetween: 30,
+
 	    // effect: 'coverflow',
+	    direction: 'horizontal',
+		// loop: false,
+		slidesPerView: 2,
+		spaceBetween: 20,
+		centeredSlides: true,
+		mousewheel: false,
+	  	keyboard: true,
+	  	autoplay: false,
+	  	loop: true,
+	  	slidesPerGroup: 1,
+	  	slidesPerGroupSkip: 0,
 	    breakpoints: {
 		    767: {
-		    	slidesPerView: 2,
+		    	slidesPerView: 3,
+		    	spaceBetween: 20,
 			},
 			960: {
-				slidesPerView: 3,
+				slidesPerView: 5,
 				slidesPerGroup: 1,
+				spaceBetween: 10,
 				centeredSlides: false
 			}
 
@@ -95,7 +106,7 @@ window.onload = function() {
   //           modifier: 1,
   //           slideShadows : false
   //       },
-	    // centeredSlides: true,
+	    centeredSlides: true,
 
 	    // If we need pagination
 	    // pagination: {
@@ -112,5 +123,10 @@ window.onload = function() {
 	    // scrollbar: {
 	    //   el: '.swiper-scrollbar',
 	    // },
+	});
+
+
+	lightGallery(document.getElementById('lightgallery'), {
+	    selector: 'a' 
 	});
 }

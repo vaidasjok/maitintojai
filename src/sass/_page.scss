@@ -139,7 +139,7 @@ h2 {
 }
 h2.duona {
 	padding-left: 20.7%;
-	font-size: 32px;
+	font-size: 22px;
 	line-height: 44px;
 	margin-bottom: 100px;
 }
@@ -154,6 +154,35 @@ h2.duona {
 		display: block;
 		margin-right: 0px;
 		margin-bottom: 150px;
+	}
+}
+@media screen and (max-width: 991px) {
+	.text-1-block.text-three p {
+		margin-top: 0px;
+	}
+	.text-2-block.text-four p {
+		margin-top: 0px;
+	}
+}
+.text-2-block.text-four {
+	margin-top: 50px;
+}
+.photo-2-block.bread .photo-1 {
+	/*position: relative;
+	float: right;*/
+	top: -100%;
+}
+
+/*grikiu blynai*/
+.grikiu-blynai .text-1-block.text-three {
+	padding-top: 0px;
+}
+@media screen and (min-width: 1199px) {
+	#content {
+		background-image: url('../../dist/images/site/logo-bg.svg');
+	    background-size: 70%;
+	    background-repeat: no-repeat;
+	    background-position: 140% 80%;
 	}
 }
 
