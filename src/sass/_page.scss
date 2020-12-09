@@ -139,13 +139,14 @@ h2 {
 }
 h2.duona {
 	padding-left: 20.7%;
-	font-size: 22px;
+	font-size: 32px;
 	line-height: 44px;
 	margin-bottom: 100px;
 }
 @media screen and (max-width: 991px) {
 	h2.duona {
 		margin-bottom: 50px;
+		font-size: 22px;
 	}
 }
 @media screen and (min-width: 991px) {
@@ -176,6 +177,12 @@ h2.duona {
 /*grikiu blynai*/
 .grikiu-blynai .text-1-block.text-three {
 	padding-top: 0px;
+}
+#content {
+	background-image: url('../../dist/images/site/logo-bg.svg');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 140% 80%;
 }
 @media screen and (min-width: 1199px) {
 	#content {
